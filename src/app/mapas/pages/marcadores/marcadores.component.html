@@ -1,6 +1,15 @@
 <ul class="list-group">
     <li class="list-group-item list-group-item-info" (click)="addMarker()"> + Agregar </li>
-    <li class="list-group-item" (click)="goMarker()"> market 1 </li>
+    <li class="list-group-item" 
+    *ngFor="let marcador of marcadores; let i = index "
+    (click)="goMarker( marcador.marker!)" 
+    (dblclick)="deleteMarker( i )"
+    [ngStyle]="{
+        'background-color': marcador.color
+    }"
+    > 
+    market {{i + 1}} 
+</li>
 </ul>
 
 
